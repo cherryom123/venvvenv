@@ -35,7 +35,7 @@ def webhook():
       }
       headers = {"Content-Type": "application/json"}
 
-      url = "https://graph.facebook.com/v15.0/106424885694792/messages?access_token=EAASr2nql34QBAN9hjL3GPdYzvs5wxBP2Bzgi6GjIFg6mzZB5ZBExROSuDAZC5VdTqmaUon3lGV9TCpXKAOhUluYqYvB4gkShZCUhCZCsP6NCSW3byUpxq9NP4kMmu3Yp22bWhfcRLwmyWqInx1jaLh2BHIrn3LbiazhF2is8ODOy6lRW1sZBwxMyqBhKSIx87T46mUyieT6jgZCZAZBAq3QDC"
+      url = "https://graph.facebook.com/v16.0/106424885694792/messages?access_token=EAASr2nql34QBO3ZBJOlay9kAjLmQausx4zn2J4IzKDZCKu71rDU02B2NcH4JpBQiNCPc2NxM7ZCIhOiCMwKbIEJ33qhKoJ6Q48E9RUyqZAZAlezdVGapBT7n8kcxcO9HKyzGwXSxa6YrjpwnUmAC1or3KwUqkDuxNYRFTtNGFJyl68v7utlo92p5vZAVu0esEZCRxZBmenRBiwDk4soXCt7isXw1ZBJoZD"
       requests.post(url, json=data, headers=headers)
     return jsonify(status=200)
   else:
@@ -63,7 +63,8 @@ def verify():
   else:
     return jsonify(status=404)
 
+port = int(os.environ.get("PORT", 3000))
+if __name__ == "__main__":
+  app.run(host="0.0.0.0", port=port)
+  print(f"App is running on port {port}")
 
-if __name__ == '__main__':
-
-  app.run(port=4000)
